@@ -30,16 +30,15 @@ deploy_dotfiles() {
     getent passwd $username >/dev/null 2>&1 && userFound=true
     
     if $userFound; then
-	pwd;exit;
         git submodule update -i
         rm -rfv /$username/.vim
-        cp -v dotfiles/.vim /$username/.vim
+        cp -v .vim /$username/.vim
         rm -rfv /$username/.vimrc
-        cp -v dotfiles/.vimrc /$username/.vimrc
+        cp -v .vimrc /$username/.vimrc
         vim +PluginInstall +qall
-        #rm -rf /$username/.bashrc
-        #ln -s $username/dotfiles/.bashrc /$username/.bashrc
-        cp -v dotfiles/.tmux.conf /$username/.tmux.conf
+        #rm -rfv /$username/.bashrc
+        #cp -v .bashrc /$username/.bashrc
+        cp -v .tmux.conf /$username/.tmux.conf
     else
         echo -e "${RED}The user '$username' does not exist, skipping config...${Z}" 1>&2
         echo -e "\e[7mExit\e[0m"
