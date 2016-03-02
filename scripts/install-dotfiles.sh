@@ -31,7 +31,7 @@ deploy_dotfiles() {
     
     if $userFound; then
         git submodule update -i
-	if [ $S1='root' ];
+	if [ $userFound='root' ];
 	then
 	    path='/'
 	else 
@@ -39,11 +39,11 @@ deploy_dotfiles() {
 	fi
 
         rm -rfv "$path.vim"
-        cp -v .vim "$path.vim"
-        rm -rfv "$path.vimrc"
+        cp -vr .vim "$path.vim"
+        rm -fv "$path.vimrc"
         cp -v .vimrc "$path.vimrc"
         vim +PluginInstall +qall
-        #rm -rfv "$path.bashrc"
+        #rm -fv "$path.bashrc"
         #cp -v .bashrc "$path.bashrc"
         cp -v .tmux.conf "$path.tmux.conf"
     else
