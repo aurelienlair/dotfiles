@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env /bin/bash
 ######################## Colors
 export WHITE="\e[1;37m"
 export LGRAY="\e[0;37m"

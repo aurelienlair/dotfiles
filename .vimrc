@@ -157,3 +157,20 @@ set undofile
 set undodir=$HOME/.vim/undo
 autocmd BufWritePre /tmp/* setlocal noundofile
 autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
+
+function! CurrentNamespace()
+    let path = split(expand("%:p"), "/")
+    let pathInverted = copy(path)
+    call reverse(pathInverted)
+    let rootFolder = -1
+    for folder in pathInverted
+        let firstCharacter = strpart(folder, 0, 1)
+        if (firstCharacter ==# toupper(firstCharacter))
+            let rootFolder = rootFolder - 1
+        else
+            break
+        endif
+    endfor
+    let namespace = join(path[rootFolder+1:-2], "\\")
+    return namespace
+endfunction

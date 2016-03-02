@@ -1,0 +1,141 @@
+snippet nclass
+    <?php
+    namespace ${1:`CurrentNamespace()`};
+
+    class ${2:`Filename()`}
+    {
+        ${3}
+    }
+snippet nint
+    <?php
+    namespace ${1:`CurrentNamespace()`};
+
+    interface ${2:`Filename()`}
+    {
+        ${3}
+    }
+snippet class
+    <?php
+
+    class ${1:`Filename()`}
+    {
+        ${2}
+    }
+snippet interface
+    <?php
+
+    interface ${1:`vim_snippets#Filename()`}
+    {
+        ${2}
+    }
+snippet ntestc
+    <?php
+    namespace ${1:`CurrentNamespace()`};
+
+    class ${2:`Filename()`} extends \PHPUnit_Framework_TestCase
+    {
+        ${3}
+    }
+snippet testc
+    <?php
+
+    class ${1:`Filename()`} extends \PHPUnit_Framework_TestCase
+    {
+        ${2}
+    }
+snippet testm
+    public function test${1}()
+    {
+        ${2}
+    }
+snippet testi
+    public function test${1}()
+    {
+        $this->markTestIncomplete("${2}");
+    }
+snippet tests
+    public function setUp()
+    {
+        ${1}
+    }
+
+snippet construct1
+    private $$1;
+
+    public function __construct($${1:})
+    {
+        $this->$1 = $$1;
+    }
+snippet construct2
+    private $$1;
+    private $$2;
+
+    public function __construct($${1:}, $${2:})
+    {
+        $this->$1 = $$1;
+        $this->$2 = $$2;
+    }
+snippet construct3
+    private $$1;
+    private $$2;
+    private $$3;
+
+    public function __construct($${1:}, $${2:}, $${3:})
+    {
+        $this->$1 = $$1;
+        $this->$2 = $$2;
+        $this->$3 = $$3;
+    }
+snippet factorym1
+    private $$1;
+
+    public static function ${2}($${1:})
+    {
+        return new self($$1);
+    }
+
+    private function __construct($$1)
+    {
+        $this->$1 = $$1;
+    }
+snippet factorym2
+    private $$1;
+    private $$2;
+
+    public static function ${3}($${1:}, $${2:})
+    {
+        return new self($$1, $$2);
+    }
+
+    private function __construct($$1, $$2)
+    {
+        $this->$1 = $$1;
+        $this->$2 = $$2;
+    }
+snippet pum
+    public function ${1}(${2})
+    {
+        ${3}
+    }
+snippet prim
+    private function ${1}(${2})
+    {
+        ${3}
+    }
+snippet as
+    $this->assert${1:Equals}(
+        ${2},
+        ${3}
+    );
+snippet ar
+    $${1} = [
+        ${2},
+    ];
+snippet stub
+    $${1}->expects($this->${2}())
+        ->method('${3}')
+        ->will($this->returnValue(${4}));
+snippet export
+    error_log(var_export(${1}, true));
+snippet trace
+    error_log((new \Exception())->getTraceAsString());
