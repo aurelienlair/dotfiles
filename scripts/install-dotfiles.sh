@@ -26,10 +26,9 @@ deploy_dotfiles() {
       1)    echo "Cancel pressed. Skipping config..."; echo -e "\e[7mExit\e[0m"; exit 1;
     esac 
     clear
-    userFound=false
-    getent passwd $username >/dev/null 2>&1 && userFound=true
-    
-    if $userFound; then
+
+    userFound="$(grep ^${username}: /etc/passwd)"
+    if [ -n "${userFound}" ]; then
 	path="/home/$username/"
         rm -rfv "$path.vim"
         cp -vr .vim "$path.vim"
