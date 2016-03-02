@@ -1,6 +1,5 @@
 " GENERAL SETTINGS
 set nocompatible 
-set filetype=off 
 set fileformat=unix
 set encoding=utf-8 
 set number
@@ -38,18 +37,14 @@ autocmd FileType php noremap <C-K> :!clear<CR>:!/usr/bin/php -d display_errors=1
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
-" VUNDLE SETTINGS "
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'embear/vim-localvimrc'
-  Plugin 'scrooloose/nerdTree'
-  Plugin 'scrooloose/syntastic'
-call vundle#end()
-filetype plugin indent on
-
+" PLUGGED SETTINGS "
+call plug#begin('~/.vim/plugged')
+  Plug 'kien/ctrlp.vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'embear/vim-localvimrc'
+  Plug 'scrooloose/nerdTree'
+  Plug 'scrooloose/syntastic'
+call plug#end()
 
 " NERDTREE SETTINGS
 map  <C-l> :tabn<CR>
