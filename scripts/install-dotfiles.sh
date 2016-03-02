@@ -33,14 +33,17 @@ deploy_dotfiles() {
 	path="/home/$username/"
         rm -rfv "$path.vim"
         cp -vr .vim "$path.vim"
+	chown -Rv $username:$username "$path.vimrc"
         rm -fv "$path.vimrc"
         cp -v .vimrc "$path.vimrc"
-        #vim +PluginInstall +qall
-        #rm -fv "$path.bashrc"
-        #cp -v .bashrc "$path.bashrc"
+	chown -v $username:$username "$path.vimrc"
         rm -fv "$path.tmux.conf"
         cp -v .tmux.conf "$path.tmux.conf"
-	vim -E -u NONE -S +PlugInstall +qall > /dev/null
+	chown -v $username:$username "$path.tmux.conf"
+	vim +PlugInstall +qall &> /dev/null
+        #rm -fv "$path.bashrc"
+        #cp -v .bashrc "$path.bashrc"
+	#chown -v $username:$username "$path.bashrc"
     else
         echo -e "${RED}The user '$username' does not exist, skipping config...${Z}" 1>&2
         echo -e "\e[7mExit\e[0m"
