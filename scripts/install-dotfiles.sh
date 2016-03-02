@@ -31,14 +31,21 @@ deploy_dotfiles() {
     
     if $userFound; then
         git submodule update -i
-        rm -rfv /$username/.vim
-        cp -v .vim /$username/.vim
-        rm -rfv /$username/.vimrc
-        cp -v .vimrc /$username/.vimrc
+	if [ $S1='root' ];
+	then
+	    path='/'
+	else 
+	    path="/home/$username/"
+	fi
+
+        rm -rfv "$path.vim"
+        cp -v .vim "$path.vim"
+        rm -rfv "$path.vimrc"
+        cp -v .vimrc "$path.vimrc"
         vim +PluginInstall +qall
-        #rm -rfv /$username/.bashrc
-        #cp -v .bashrc /$username/.bashrc
-        cp -v .tmux.conf /$username/.tmux.conf
+        #rm -rfv "$path.bashrc"
+        #cp -v .bashrc "$path.bashrc"
+        cp -v .tmux.conf "$path.tmux.conf"
     else
         echo -e "${RED}The user '$username' does not exist, skipping config...${Z}" 1>&2
         echo -e "\e[7mExit\e[0m"
