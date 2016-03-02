@@ -1,7 +1,3 @@
-# Vim configuration files and plugins
+# Personal dotfiles and tools
 
-vim
-
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-:PluginInstall
+curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install.sh | /bin/bash
