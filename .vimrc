@@ -21,6 +21,8 @@ set incsearch
 set hlsearch
 set wrapscan
 set history=2000
+" FOR AIRLINE BAR
+set laststatus=2
 
 " REMAPPING OF KEYBOARD KEYS
 inoremap  <Up>     <NOP>
@@ -48,6 +50,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tomtom/tlib_vim'
   Plug 'honza/vim-snippets'
   Plug 'garbas/vim-snipmate'
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " NERDTREE SETTINGS
