@@ -30,6 +30,11 @@ deploy_dotfiles() {
     userFound="$(grep ^${username}: /etc/passwd)"
     if [ -n "${userFound}" ]; then
         path="/home/$username/"
+        if [ "$username" == "root" ]; then
+            path="/$username/"
+        else
+            path="/home/$username/"
+        fi
         rm -rfv "$path.vim"
         cp -vr .vim "$path.vim"
         chown -Rv $username:$username "$path.vim"
