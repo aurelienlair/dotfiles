@@ -157,8 +157,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 "enable undo persistence for all but tmp files
 set undofile
 set undodir=$HOME/.vim/undo
-autocmd BufWritePre /tmp/* setlocal noundofile
-autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
+" exlude tmp files
+" autocmd BufWritePre /tmp/* setlocal noundofile
+" autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
 
 " PHPUNIT SHORTCUT
 nnoremap <silent> <Leader>t :setlocal nocursorline <BAR> call RunCurrentTest('') <BAR> setlocal cursorline<CR>
