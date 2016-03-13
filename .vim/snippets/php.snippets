@@ -211,8 +211,10 @@ snippet mockbwithoutconst
 	$${1} = $this->getMockBuilder('')
 		->disableOriginalConstructor()
 		->getMock(); 
-snippet export
+snippet error
 	error_log(var_export($${1}, true));
+snippet export
+	var_export($${1}, true);
 snippet dump 
 	var_dump($${1:});
 snippet printr 
