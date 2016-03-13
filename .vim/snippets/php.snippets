@@ -212,25 +212,25 @@ snippet mockbwithoutconst
 		->disableOriginalConstructor()
 		->getMock(); 
 snippet export
-	error_log(var_export(${1}, true));
+	error_log(var_export($${1}, true));
 snippet dump 
-	var_dump(${1});
+	var_dump($${1:});
 snippet printr 
-	print_r(${1});
+	print_r($${1:});
 snippet printrpre
-	echo '<pre>' . print_r(${1}) . '</pre>';
+	echo '<pre>' . print_r($${1:}) . '</pre>';
 snippet trace
 	error_log((new \Exception())->getTraceAsString());
 snippet requireonce
 	require_once __DIR__ . '/${1}.php';
 snippet privateatt
-	private $${1};
+	private $${1:};
 snippet protectedatt
-	protected $${1};
+	protected $${1:};
 snippet privateattarr
-	private $${1} = [];
+	private $${1:} = [];
 snippet protectedattarr
-	protected $${1} = [];
+	protected $${1:} = [];
 snippet ?
 	<?php
 
