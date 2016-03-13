@@ -6,7 +6,23 @@ snippet nclass
 	{
 		${3}
 	}
-snippet nint
+snippet nclassabs
+	<?php
+	namespace ${1:`CurrentNamespace()`};
+
+	abstract class ${2:`Filename()`}
+	{
+		${3}
+	}
+snippet nclassfinal
+	<?php
+	namespace ${1:`CurrentNamespace()`};
+
+	final class ${2:`Filename()`}
+	{
+		${3}
+	}
+snippet ninterface
 	<?php
 	namespace ${1:`CurrentNamespace()`};
 
@@ -14,10 +30,39 @@ snippet nint
 	{
 		${3}
 	}
+snippet nclasstest
+	<?php
+	namespace ${1:`CurrentNamespace()`};
+
+	class ${2:`Filename()`} extends \PHPUnit_Framework_TestCase
+	{
+		${3}
+	}
+snippet classabs
+	<?php
+
+	abstract class ${1:`filename()`}
+	{
+		${2}
+	}
+snippet classfinal
+	<?php
+
+	final class ${1:`filename()`}
+	{
+		${2}
+	}
 snippet class
 	<?php
 
-	class ${1:`Filename()`}
+	class ${1:`filename()`}
+	{
+		${2}
+	}
+snippet classext
+	<?php
+
+	class ${1:`Filename()`} extends
 	{
 		${2}
 	}
@@ -28,32 +73,29 @@ snippet interface
 	{
 		${2}
 	}
-snippet ntestc
-	<?php
-	namespace ${1:`CurrentNamespace()`};
-
-	class ${2:`Filename()`} extends \PHPUnit_Framework_TestCase
-	{
-		${3}
-	}
-snippet testc
+snippet classtest
 	<?php
 
 	class ${1:`Filename()`} extends \PHPUnit_Framework_TestCase
 	{
 		${2}
 	}
-snippet testm
+snippet testf
 	public function test${1}()
 	{
 		${2}
 	}
-snippet testi
+snippet skipped 
+	public function test${1}()
+	{
+		$this->markTestSkipped("${2}");
+	}
+snippet incomplete 
 	public function test${1}()
 	{
 		$this->markTestIncomplete("${2}");
 	}
-snippet tests
+snippet setup 
 	public function setUp()
 	{
 		${1}
@@ -112,22 +154,47 @@ snippet factorym2
 		$this->$1 = $$1;
 		$this->$2 = $$2;
 	}
-snippet pum
+snippet publicf
 	public function ${1}(${2})
 	{
 		${3}
 	}
-snippet prim
+snippet privatef
 	private function ${1}(${2})
 	{
 		${3}
 	}
-snippet as
-	$this->assert${1:Equals}(
-		${2},
+snippet protectedf
+	protected function ${1}(${2})
+	{
 		${3}
+	}
+snippet protectedfabs
+	abstract protected function ${1}(${2})
+	{
+		${3}
+	}
+snippet asserte
+	$this->assertEquals(
+		${1},
+		${2}
 	);
-snippet ar
+snippet asserts
+	$this->assertSame(
+		${1},
+		${2}
+	);
+snippet assertt
+	$this->assertTrue(
+		${1},
+		true
+	);
+snippet assertf
+	$this->assertFalse(
+		${1},
+		false
+	);
+snippet arr
 	$${1} = [
 		${2},
 	];
@@ -135,7 +202,35 @@ snippet stub
 	$${1}->expects($this->${2}())
 		->method('${3}')
 		->will($this->returnValue(${4}));
+snippet mock
+	$${1} = $this->getMock('');
+snippet mockb
+	$${1} = $this->getMockBuilder('')
+		->getMock(); 
+snippet mockbwithoutconst
+	$${1} = $this->getMockBuilder('')
+		->disableOriginalConstructor()
+		->getMock(); 
 snippet export
 	error_log(var_export(${1}, true));
+snippet dump 
+	var_dump(${1});
+snippet printr 
+	print_r(${1});
+snippet printrpre
+	echo '<pre>' . print_r(${1}) . '</pre>';
 snippet trace
 	error_log((new \Exception())->getTraceAsString());
+snippet requireonce
+	require_once __DIR__ . '/${1}.php';
+snippet privateatt
+	private $${1};
+snippet protectedatt
+	protected $${1};
+snippet privateattarr
+	private $${1} = [];
+snippet protectedattarr
+	protected $${1} = [];
+snippet ?
+	<?php
+
