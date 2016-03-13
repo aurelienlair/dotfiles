@@ -48,7 +48,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/syntastic'
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
-  Plug 'honza/vim-snippets'
+  "Plug 'honza/vim-snippets'
   Plug 'garbas/vim-snipmate'
   Plug 'vim-airline/vim-airline'
 call plug#end()
