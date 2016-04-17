@@ -52,7 +52,7 @@ call plug#begin('~/.vim/plugged')
   "Plug 'honza/vim-snippets'
   Plug 'garbas/vim-snipmate'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-scripts/paredit'
+  Plug 'vim-scripts/paredit.vim'
 call plug#end()
 
 " NERDTREE SETTINGS
