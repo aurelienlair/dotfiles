@@ -38,6 +38,7 @@ autocmd FileType php noremap <C-M> :!clear<CR>:w!<CR>:!/usr/bin/php %<CR>
 autocmd FileType php noremap <C-K> :!clear<CR>:!/usr/bin/php -d display_errors=1 -l %<CR>
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype clojure setlocal ts=2 sw=2 expandtab
 
 " PLUGGED SETTINGS "
 call plug#begin('~/.vim/plugged')
@@ -51,6 +52,7 @@ call plug#begin('~/.vim/plugged')
   "Plug 'honza/vim-snippets'
   Plug 'garbas/vim-snipmate'
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-scripts/paredit'
 call plug#end()
 
 " NERDTREE SETTINGS
@@ -239,4 +241,3 @@ endfunction
 
 " REPLACE ARRAY() WITH []
 nnoremap <silent> <Leader>a /\<array\>\s*(<CR>:nohl<CR>dwmp%r]`pr[
-
