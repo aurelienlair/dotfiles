@@ -31,7 +31,16 @@ function install_dialog() {
 command_exists() {
     command -v "$@" > /dev/null 2>&1
 }
-
+function installCtags() {
+    # https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
+    cd /tmp
+    wget "https://github.com/shawncplus/phpcomplete.vim/raw/master/misc/ctags-5.8_better_php_parser.tar.gz" -O ctags-5.8_better_php_parser.tar.gz
+    tar xvf ctags-5.8_better_php_parser.tar.gz
+    cd ctags
+    ./configure
+    make
+    sudo make install
+}
 do_install() {
     if ! command_exists dialog; then
         install_dialog;
