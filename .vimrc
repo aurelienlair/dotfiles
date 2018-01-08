@@ -42,14 +42,17 @@ autocmd Filetype clojure setlocal ts=2 sw=2 expandtab
 
 " PLUGGED SETTINGS "
 call plug#begin('~/.vim/plugged')
+" EDITING
   Plug 'kien/ctrlp.vim'
-  Plug 'tpope/vim-fugitive'
-  Plug 'embear/vim-localvimrc'
   Plug 'scrooloose/nerdTree'
+" SYNTAX
   Plug 'scrooloose/syntastic'
+" UTILS 
+  Plug 'tpope/vim-fugitive'
+" CONFIG
+  Plug 'embear/vim-localvimrc'
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
-  "Plug 'honza/vim-snippets'
   Plug 'garbas/vim-snipmate'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/paredit.vim'
