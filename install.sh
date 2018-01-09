@@ -48,7 +48,7 @@ do_install() {
 
     cmd=(dialog --separate-output --checklist "Select program to install/configure:" 22 76 16)
     options=(1 "Dotfiles" off
-            2 "Vim 7.4" off
+            2 "Vim 8.0" off
             3 "Tmux 1.9a" off
             4 "Tmuxp" off
     )
@@ -63,8 +63,8 @@ do_install() {
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
             2)
-                echo -e "${LGREEN}Installing${Z} ${YELLOW}Vim 7.4${Z}"
-                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-vim-7.4.sh)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Vim 8.0${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-vim-8.0.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
             3)

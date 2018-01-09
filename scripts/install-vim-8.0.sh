@@ -6,10 +6,10 @@ function installVim() {
 
     mkdir -p /tmp/install
     cd /tmp/install
-    rm -rf vim74
-    wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-    tar xvjf vim-7.4.tar.bz2
-    cd vim74
+    rm -rf vim80
+    wget ftp://ftp.vim.org/pub/vim/unix/vim-8.0.tar.bz2
+    tar xvjf vim-8.0.tar.bz2
+    cd vim80
     ./configure --with-features=huge \
                 --enable-gui=gtk2 \
                 --enable-cscope \
@@ -19,15 +19,8 @@ function installVim() {
                 --enable-pythoninterp \
                 --enable-rubyinterp
     
-    make VIMRUNTIMEDIR=/usr/share/vim/vim74
+    make VIMRUNTIMEDIR=/usr/share/vim/vim80
     sudo make install
-}
-function unInstallVim() {
-    wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-    tar xvjf vim-7.4.tar.bz2
-    cd vim74
-    make VIMRUNTIMEDIR=/usr/share/vim/vim74
-    rm /usr/bin/vim
 }
 
 installVim;
