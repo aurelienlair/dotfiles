@@ -23,6 +23,7 @@ set wrapscan
 set history=2000
 " FOR AIRLINE BAR
 set laststatus=2
+set backspace=indent,eol,start
 
 " REMAPPING OF KEYBOARD KEYS
 inoremap  <Up>     <NOP>
@@ -51,6 +52,7 @@ call plug#begin('~/.vim/plugged')
 " UTILS 
   Plug 'tpope/vim-fugitive'
   Plug 'garbas/vim-snipmate'
+  Plug 'honza/vim-snippets'
   Plug 'vim-airline/vim-airline'
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
