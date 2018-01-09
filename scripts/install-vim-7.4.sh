@@ -28,6 +28,7 @@ function unInstallVim() {
     tar xvjf vim-7.4.tar.bz2
     cd vim74
     make VIMRUNTIMEDIR=/usr/share/vim/vim74
+    make uninstall
     rm /usr/bin/vim
 }
 
