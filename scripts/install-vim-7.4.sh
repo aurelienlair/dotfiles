@@ -4,6 +4,7 @@ function installVim() {
         libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev \
         libx11-dev libxpm-dev libxt-dev python-dev ruby-dev wget
 
+    rm -f /tmp/install
     mkdir -p /tmp/install
     cd /tmp/install
     rm -rf vim74
