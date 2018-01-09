@@ -45,17 +45,17 @@ call plug#begin('~/.vim/plugged')
 " EDITING
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdTree'
+  Plug 'vim-scripts/paredit.vim'
 " SYNTAX
   Plug 'scrooloose/syntastic'
 " UTILS 
   Plug 'tpope/vim-fugitive'
-" CONFIG
-  Plug 'embear/vim-localvimrc'
-  Plug 'MarcWeber/vim-addon-mw-utils'
-  Plug 'tomtom/tlib_vim'
   Plug 'garbas/vim-snipmate'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-scripts/paredit.vim'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+" CONFIG
+  Plug 'embear/vim-localvimrc'
 call plug#end()
 
 " NERDTREE SETTINGS
