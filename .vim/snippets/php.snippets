@@ -201,7 +201,7 @@ snippet stub
 		->method('${3}')
 		->will($this->returnValue(${4}));
 snippet mock
-	$${1} = $this->getMock('');
+	$${1} = $this->createMock('');
 snippet mockb
 	$${1} = $this->getMockBuilder('')
 		->getMock(); 
