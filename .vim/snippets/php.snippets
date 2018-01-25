@@ -34,7 +34,9 @@ snippet nclasstest
 	<?php
 	namespace ${1:`CurrentNamespace()`};
 
-	class ${2:`Filename()`} extends \PHPUnit_Framework_TestCase
+	use PHPUnit\Framework\TestCase;
+
+	class ${2:`Filename()`} extends TestCase
 	{
 		${3}
 	}
