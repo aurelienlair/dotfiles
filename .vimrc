@@ -16,6 +16,7 @@ set expandtab
 set nopaste
 set autoindent
 set comments=sr:/*,mb:*,ex:*/
+set noswapfile
 
 set incsearch
 set hlsearch
