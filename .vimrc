@@ -41,6 +41,8 @@ autocmd FileType php noremap <C-K> :!clear<CR>:!/usr/bin/php -d display_errors=1
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype clojure setlocal ts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 
 " PLUGGED SETTINGS "
 call plug#begin('~/.vim/plugged')
