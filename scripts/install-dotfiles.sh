@@ -46,6 +46,11 @@ deploy_dotfiles() {
         chown -v $username:$username "$path.tmux.conf"
         vim +PlugInstall +qall &> /dev/null
         chown -Rv $username:$username "$path.vim"
+        cp -v .gitconfig "$path"
+        chown -v $username:$username "$path/.gitconfig"
+        cp -v .lessfilter "$path"
+        chown -v $username:$username "$path/.lessfilter"
+        chmod a+x "$path/.lessfilter"
         #rm -fv "$path.bashrc"
         #cp -v .bashrc "$path.bashrc"
         #chown -v $username:$username "$path.bashrc"

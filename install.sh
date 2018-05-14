@@ -41,6 +41,9 @@ function installCtags() {
     make
     sudo make install
 }
+function installPygments() {
+    sudo apt-get install python-pygments 
+}
 do_install() {
     if ! command_exists dialog; then
         install_dialog;
@@ -49,8 +52,10 @@ do_install() {
     cmd=(dialog --separate-output --checklist "Select program to install/configure:" 22 76 16)
     options=(1 "Dotfiles" off
             2 "Vim 8.0" off
-            3 "Tmux 1.9a" off
-            4 "Tmuxp" off
+            3 "Ctags" off
+            4 "Tmux 1.9a" off
+            5 "Tmuxp" off
+            6 "Pygments" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -77,9 +82,14 @@ do_install() {
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-tmux-1.9a.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            6)
+            5)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}tmuxp${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-tmuxp.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            6)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Pygments${Z}"
+                installPygments;
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
