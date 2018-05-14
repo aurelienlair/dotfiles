@@ -17,6 +17,7 @@ set nopaste
 set autoindent
 set comments=sr:/*,mb:*,ex:*/
 set noswapfile
+set colorcolumn=80
 
 set incsearch
 set hlsearch
