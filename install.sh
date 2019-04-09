@@ -56,6 +56,7 @@ do_install() {
             4 "Tmux 1.9a" off
             5 "Tmuxp" off
             6 "Pygments" off
+            7 "Xsv" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -90,6 +91,11 @@ do_install() {
             6)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Pygments${Z}"
                 installPygments;
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            7)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}XSV${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-xsv.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
