@@ -58,6 +58,7 @@ do_install() {
             6 "Pygments" off
             7 "Xsv" off
             8 "Docker" off
+            9 "Mps" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -102,6 +103,11 @@ do_install() {
             8)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Docker${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-docker.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            9)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}MPS${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-mps.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
