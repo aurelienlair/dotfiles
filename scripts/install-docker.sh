@@ -14,3 +14,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 # https://docs.docker.com/install/linux/linux-postinstall/
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo setfacl -m user:$USER:rw /var/run/docker.sock
