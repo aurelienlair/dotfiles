@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-dpkg -s snapd 2>/dev/null >/dev/null || sudo apt-get -y install snapd
+dpkg -s snapd 2>/dev/null >/dev/null || apt-get -y install snapd
 
-sudo snap install phpstorm --classic
+snap install phpstorm --classic

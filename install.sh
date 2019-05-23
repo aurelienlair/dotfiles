@@ -31,16 +31,6 @@ function install_dialog() {
 command_exists() {
     command -v "$@" > /dev/null 2>&1
 }
-function installCtags() {
-    # https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags
-    cd /tmp
-    wget "https://github.com/shawncplus/phpcomplete.vim/raw/master/misc/ctags-5.8_better_php_parser.tar.gz" -O ctags-5.8_better_php_parser.tar.gz
-    tar xvf ctags-5.8_better_php_parser.tar.gz
-    cd ctags
-    ./configure
-    make
-    sudo make install
-}
 function installPygments() {
     sudo apt-get install python-pygments 
 }
@@ -52,13 +42,14 @@ do_install() {
     cmd=(dialog --separate-output --checklist "Select program to install/configure:" 22 76 16)
     options=(1 "Dotfiles" off
             2 "Vim 8.0" off
-            3 "Ctags" off
-            4 "Tmux 1.9a" off
-            5 "Tmuxp" off
-            6 "Pygments" off
-            7 "Xsv" off
-            8 "Docker" off
-            9 "Mps" off
+            3 "Tmux 1.9a" off
+            4 "Tmuxp" off
+            5 "Pygments" off
+            6 "Xsv" off
+            7 "Docker" off
+            8 "Mps" off
+            9 "Postman" off
+            10 "PHPStorm" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -76,38 +67,43 @@ do_install() {
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
             3)
-                echo -e "${LGREEN}Installing${Z} ${YELLOW}Ctags${Z}"
-                installCtags;
-                echo -e "${LGREEN}...done${Z}\n"
-                ;;
-            4)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Tmux 1.9a${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-tmux-1.9a.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            5)
+            4)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}tmuxp${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-tmuxp.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            6)
+            5)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Pygments${Z}"
                 installPygments;
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            7)
+            6)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}XSV${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-xsv.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            8)
+            7)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Docker${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-docker.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
-            9)
+            8)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}MPS${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-mps.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            9)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Postman${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-postman.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            10)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}PHPStorm${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-phpstorm.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
