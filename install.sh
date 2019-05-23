@@ -50,6 +50,7 @@ do_install() {
             8 "Mps" off
             9 "Postman" off
             10 "PHPStorm" off
+            11 "Fish shell" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -104,6 +105,11 @@ do_install() {
             10)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}PHPStorm${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-phpstorm.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            11)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Fish shell${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-fish.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
