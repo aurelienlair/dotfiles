@@ -75,6 +75,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|work|swp)$',
     \ 'file': '\v\.(gitmodules|gitignore)$',
     \ } 
+let NERDTreeShowHidden=1
 
 " ACK SETTINGS "
 if !exists("g:ackprg")
