@@ -1,2 +1,2 @@
 sudo apt install python3-pip
-sudo pip install tmuxp
+sudo pip3 install tmuxp
