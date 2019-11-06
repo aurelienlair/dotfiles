@@ -53,6 +53,7 @@ do_install() {
             11 "Fish shell" off
             12 "Awscli" off
             13 "Vscode" off
+            13 "Geany themes" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -122,6 +123,11 @@ do_install() {
             13)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Vscode${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-vscode.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            14)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Geany themes${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-geany-themes.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
