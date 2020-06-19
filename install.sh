@@ -53,7 +53,8 @@ do_install() {
             11 "Fish shell" off
             12 "Awscli" off
             13 "Vscode" off
-            13 "Geany themes" off
+            14 "Geany themes" off
+            15 "Homebrew" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -128,6 +129,16 @@ do_install() {
             14)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Geany themes${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-geany-themes.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            15)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Homebrew${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-homebrew.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            16)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Makecert${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-makecert.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
