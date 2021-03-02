@@ -173,8 +173,10 @@ let &shellpipe='2>/dev/null>'
 
 
 " SYNTASTIC SETTINGS
-let g:syntastic_php_checkers=['php']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " SNIPMATE PARSER VERSION
 let g:snipMate = { 'snippet_version' : 1 }

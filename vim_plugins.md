@@ -56,3 +56,6 @@ but it is possible to switch it off by putting the following statement in the
 
 Vim-terraform-completion:
 plugin to for Terraform syntax checking and linter
+
+Javascript linter:
+needs eslint to be installed (npm install -g eslint)
