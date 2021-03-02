@@ -55,6 +55,8 @@ do_install() {
             13 "Vscode" off
             14 "Geany themes" off
             15 "Homebrew" off
+            16 "Makecert" off
+            17 "Shellcheck" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -139,6 +141,11 @@ do_install() {
             16)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Makecert${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-makecert.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            17)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Shellcheck${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-shellcheck.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac

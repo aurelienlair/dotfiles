@@ -173,6 +173,7 @@ let &shellpipe='2>/dev/null>'
 
 
 " SYNTASTIC SETTINGS
+let g:syntastic_sh_checkers = ['shellcheck', 'sh']
 let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
