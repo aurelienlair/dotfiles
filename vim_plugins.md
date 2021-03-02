@@ -1,6 +1,8 @@
 Plugins in my .vimrc
 ====================
 
+Every below plugin is loaded thanks to [Vundle](https://github.com/VundleVim/Vundle.vim)
+
 Ctrlp:
 a file finder.
 Press <F5> to purge the cache
@@ -38,6 +40,8 @@ provides some utility functions. Dependency of Snipmate
 Snipmate:
 Snipmate aims to provide support for textual snippets
 Searches in ~/.vim/snippets/filename.snippets
+Parser version forced to 1
+let g:snipMate = { 'snippet_version' : 1 }
 
 Airline:
 When the plugin is correctly loaded, Vim will draw a nice statusline at 
@@ -49,3 +53,6 @@ a special editing mode that keeps all matched characters
 Paredit mode is set by default for .lisp, .cl, .clj, cljs, .scm and .rkt files,
 but it is possible to switch it off by putting the following statement in the
 .vimrc file: let g:paredit_mode = 0
+
+Vim-terraform-completion:
+plugin to for Terraform syntax checking and linter

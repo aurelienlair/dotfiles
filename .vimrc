@@ -36,14 +36,21 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+" AUTOCLOSE
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
-autocmd FileType php noremap <C-M> :!clear<CR>:w!<CR>:!/usr/bin/php %<CR>
-autocmd FileType php noremap <C-K> :!clear<CR>:!/usr/bin/php -d display_errors=1 -l %<CR>
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype clojure setlocal ts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType js setlocal ts=2 sts=2 sw=2 expandtab
 
 " PLUGGED SETTINGS "
 call plug#begin('~/.vim/plugged')
@@ -51,6 +58,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdTree'
   Plug 'vim-scripts/paredit.vim'
+" TERRAFORM
+  Plug 'hashivim/vim-terraform'
+  Plug 'juliosueiras/vim-terraform-completion'
 " SYNTAX
   Plug 'scrooloose/syntastic'
 " UTILS 
@@ -166,6 +176,9 @@ let &shellpipe='2>/dev/null>'
 let g:syntastic_php_checkers=['php']
 let g:syntastic_javascript_checkers = ['jshint']
 
+" SNIPMATE PARSER VERSION
+let g:snipMate = { 'snippet_version' : 1 }
+
 "enable undo persistence for all but tmp files
 set undofile
 set undodir=$HOME/.vim/undo
@@ -173,81 +186,5 @@ set undodir=$HOME/.vim/undo
 " autocmd BufWritePre /tmp/* setlocal noundofile
 " autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
 
-" PHPUNIT SHORTCUT
-nnoremap <silent> <Leader>t :setlocal nocursorline <BAR> call RunCurrentTest('') <BAR> setlocal cursorline<CR>
-nnoremap <silent> <Leader>T :setlocal nocursorline <BAR> call RunCurrentTest('--stop-on-failure') <BAR> setlocal cursorline<CR>
-nnoremap <silent> <Leader>l :setlocal nocursorline <BAR> call RunLastTest() <BAR> setlocal cursorline<CR>
-nnoremap <silent> <Leader>f :setlocal nocursorline <BAR> call RunCurrentFunction() <BAR> setlocal cursorline<CR>
-nnoremap <silent> <Leader>e :setlocal nocursorline <BAR> call RunCurrentLine() <BAR> setlocal cursorline<CR>
-nnoremap <silent> <Leader>o :call OpenCurrentTest()<CR>
-
-function! RunCurrentLine()
-  exec '!php -r "var_dump(' . substitute(getline('.'), '^\s\+\|;$', '', 'g') . ');"'
-endfunction
-
-function! RunLastTest()
-  if exists("g:php_pushups_last_command")
-    exec g:php_pushups_last_command
-  else
-    echo 'sorry, nothing to run :-('
-  end
-endfunction
-
-function! RunCurrentFunction()
-  let l:current_file=expand('%:p')
-  if match(l:current_file, 'Test\.php$') != -1
-    let l:function_pattern='\C^\s*\%(public\s\+\|static\s\+\|abstract\s\+\|protected\s\+\|private\s\+\)*function\s\+\([^(]\+\)\s*(.*$'
-    let l:function_line=search(l:function_pattern, 'bcnW')
-    if l:function_line > 0
-      let l:matches=matchlist(getline(l:function_line), l:function_pattern)
-      let g:php_pushups_last_command='!vendor/bin/phpunit --filter="' . l:matches[1] . '$" ' . l:current_file
-      exec g:php_pushups_last_command
-    else
-      echo 'sorry, nothing to run :-('
-    endif
-  elseif match(l:current_file, '\.feature$') != 1
-    let l:scenario_pattern='\C^\s*Scenario\s*:\s*.*$'
-    let l:scenario_line=search(l:scenario_pattern, 'bcnW')
-    if l:scenario_line > 0
-      let g:php_pushups_last_command='!cleanup.sh; vendor/bin/behat ' . l:current_file . ':' . l:scenario_line
-      exec g:php_pushups_last_command
-    else
-      echo 'sorry, nothing to run :-('
-    endif
-  endif
-endfunction
-
-function! RunCurrentTest(parameters)
-  let l:current_file=expand('%:p')
-  let l:test_file='nothing'
-  if match(l:current_file, '\.php$') != -1
-    if match(l:current_file, 'Test\.php$') != -1
-      let l:test_file=l:current_file
-    else
-      let l:test_file=SearchForRelatedTestFile(l:current_file)
-    endif
-    if l:test_file != 'nothing'
-      let g:php_pushups_last_command='!vendor/bin/phpunit ' . a:parameters. ' ' . l:test_file
-      exec g:php_pushups_last_command
-    else
-      echo 'sorry, nothing to run :-('
-    endif
-  elseif match(l:current_file, '\.feature$') != 1
-    let g:php_pushups_last_command='!cleanup.sh; ./scripts/behat-parallel.sh -q ' . l:current_file
-    exec g:php_pushups_last_command
-  endif
-endfunction
-
-function! OpenCurrentTest()
-  let l:current_file=expand("%:p")
-  let l:test_file="nothing"
-  let l:test_file=SearchForRelatedTestFile(l:current_file)
-  if l:test_file != "nothing"
-    exec ":belowright :split " l:test_file
-  else
-    echo "sorry, nothing to open :-("
-  endif
-endfunction
-
 " REPLACE ARRAY() WITH []
-nnoremap <silent> <Leader>a /\<array\>\s*(<CR>:nohl<CR>dwmp%r]`pr[
+noremap <silent> <Leader>a /\<array\>\s*(<CR>:nohl<CR>dwmp%r]`pr[
