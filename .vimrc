@@ -51,6 +51,7 @@ autocmd Filetype clojure setlocal ts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType js setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json autocmd BufWritePre <buffer> %!jq '.'
 
 " PLUGGED SETTINGS "
 call plug#begin('~/.vim/plugged')
