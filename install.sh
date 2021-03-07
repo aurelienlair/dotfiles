@@ -58,6 +58,7 @@ do_install() {
             16 "Makecert" off
             17 "Shellcheck" off
             18 "Asdf" off
+            19 "Node" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -151,7 +152,12 @@ do_install() {
                 ;;
             18)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Asdf${Z}"
-                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-asdf.sh)
+                curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-asdf.sh | sudo -H -u aurelien /bin/bash
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            19)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Node${Z}"
+                curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-node.sh | sudo -H -u aurelien /bin/bash
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
