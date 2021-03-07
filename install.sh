@@ -57,6 +57,7 @@ do_install() {
             15 "Homebrew" off
             16 "Makecert" off
             17 "Shellcheck" off
+            18 "Asdf" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -146,6 +147,11 @@ do_install() {
             17)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Shellcheck${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-shellcheck.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            18)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Asdf${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-asdf.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
