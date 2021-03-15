@@ -59,3 +59,6 @@ plugin to for Terraform syntax checking and linter
 
 Javascript linter:
 needs eslint to be installed (npm install -g eslint)
+
+Vim surround:
+Plugin for deleting, changing, and adding "surroundings"
