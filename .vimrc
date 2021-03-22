@@ -4,7 +4,6 @@ set fileformat=unix
 set encoding=utf-8 
 set number
 syn on
-set nocompatible
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
@@ -85,7 +84,7 @@ map  <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 " CTRLP SETTINGS "
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|work|swp)$',
+    \ 'dir':  '\v[\/]\.(git|hg|svn|work|swp|terraform)$',
     \ 'file': '\v\.(gitmodules|gitignore)$',
     \ } 
 let NERDTreeShowHidden=1
