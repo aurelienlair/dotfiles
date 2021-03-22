@@ -59,6 +59,7 @@ do_install() {
             17 "Shellcheck" off
             18 "Asdf" off
             19 "Node" off
+            20 "InstantMarkDown" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -158,6 +159,11 @@ do_install() {
             19)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Node${Z}"
                 curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-node.sh | sudo -H -u aurelien /bin/bash
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            20)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Instant Markdown${Z}"
+                curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-instant-markdown.sh | sudo -H -u aurelien /bin/bash
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac

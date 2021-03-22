@@ -62,3 +62,7 @@ needs eslint to be installed (npm install -g eslint)
 
 Vim surround:
 Plugin for deleting, changing, and adding "surroundings"
+
+Vim instant markdown:
+needs nodejs and `instant-markdown-d` `instant-markdown-d@next` installed globally.
+Will allow to instantly preview finicky markdown files in a browser.

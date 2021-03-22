@@ -72,6 +72,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
+  Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 " CONFIG
   Plug 'embear/vim-localvimrc'
 call plug#end()
