@@ -82,13 +82,16 @@ map  <C-l> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-y> :tabnew<CR>
 map  <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+let NERDTreeShowHidden=1
 
 " CTRLP SETTINGS "
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|work|swp|terraform)|node_modules|vendor$',
     \ 'file': '\v\.(gitmodules|gitignore)|versions.tf$',
     \ } 
-let NERDTreeShowHidden=1
+
+" LOCALVIMRC SETTINGS "
+let g:localvimrc_sandbox = 0
 
 " ACK SETTINGS "
 if !exists("g:ackprg")
@@ -191,6 +194,3 @@ set undodir=$HOME/.vim/undo
 " exlude tmp files
 " autocmd BufWritePre /tmp/* setlocal noundofile
 " autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
-
-" REPLACE ARRAY() WITH []
-noremap <silent> <Leader>a /\<array\>\s*(<CR>:nohl<CR>dwmp%r]`pr[
