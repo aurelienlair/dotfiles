@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/paredit.vim'
   Plug 'tpope/vim-surround'
   Plug 'tmsvg/pear-tree'
+  Plug 'luochen1990/rainbow'
 " TERRAFORM
   Plug 'hashivim/vim-terraform'
   Plug 'juliosueiras/vim-terraform-completion'
@@ -187,3 +188,6 @@ set undodir=$HOME/.vim/undo
 " exlude tmp files
 " autocmd BufWritePre /tmp/* setlocal noundofile
 " autocmd BufWritePre */.git/COMMIT_EDITMSG setlocal noundofile
+
+"enable Rainbow
+let g:rainbow_active = 1

@@ -71,3 +71,7 @@ Pear tree:
 automatically pairs parentheses, quotes, HTML tags, and many other text items based 
 on a simple-to-define set of rules. It also provides pair-wise deletion, newline expansion, 
 and other typical auto-pair features without interfering with Vim's undo or dot-repeat functionality.
+
+Rainbow Parentheses Improved:
+help you read complex code by showing diff level of parentheses in diff color.
+
