@@ -1,4 +1,5 @@
 #!/usr/bin/env /bin/bash
+set -e -o pipefail
 export RED="\e[0;31m"
 
 function install_dialog() {
@@ -44,7 +45,8 @@ deploy_dotfiles() {
         rm -fv "$path.tmux.conf"
         cp -v .tmux.conf "$path.tmux.conf"
         chown -v $username:$username "$path.tmux.conf"
-        vim +PlugInstall +qall &> /dev/null
+        su - $username -c "vim -E -s -u $path/.vimrc +PlugInstall +qall"
+        cp nerdtree_custom_plugin.vim $path.vim/plugged/nerdTree/nerdtree_plugin
         chown -Rv $username:$username "$path.vim"
         cp -v .gitconfig "$path"
         chown -v $username:$username "$path/.gitconfig"
