@@ -66,3 +66,8 @@ Plugin for deleting, changing, and adding "surroundings"
 Vim instant markdown:
 needs nodejs and `instant-markdown-d` `instant-markdown-d@next` installed globally.
 Will allow to instantly preview finicky markdown files in a browser.
+
+Pear tree:
+automatically pairs parentheses, quotes, HTML tags, and many other text items based 
+on a simple-to-define set of rules. It also provides pair-wise deletion, newline expansion, 
+and other typical auto-pair features without interfering with Vim's undo or dot-repeat functionality.

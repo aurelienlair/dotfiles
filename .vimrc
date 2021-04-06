@@ -35,14 +35,6 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-" AUTOCLOSE
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
 
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
@@ -60,6 +52,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdTree'
   Plug 'vim-scripts/paredit.vim'
   Plug 'tpope/vim-surround'
+  Plug 'tmsvg/pear-tree'
 " TERRAFORM
   Plug 'hashivim/vim-terraform'
   Plug 'juliosueiras/vim-terraform-completion'
