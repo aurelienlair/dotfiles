@@ -75,3 +75,5 @@ and other typical auto-pair features without interfering with Vim's undo or dot-
 Rainbow Parentheses Improved:
 help you read complex code by showing diff level of parentheses in diff color.
 
+Vim test:
+A Vim wrapper for running tests on different granularities.

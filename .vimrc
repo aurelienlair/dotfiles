@@ -67,6 +67,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
   Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
+" TESTING
+  Plug 'janko/vim-test'
 " CONFIG
   Plug 'embear/vim-localvimrc'
 call plug#end()
@@ -86,6 +88,12 @@ let g:ctrlp_custom_ignore = {
 
 " LOCALVIMRC SETTINGS "
 let g:localvimrc_sandbox = 0
+
+" VIM TEST SETTINGS
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
 
 " ACK SETTINGS "
 if !exists("g:ackprg")

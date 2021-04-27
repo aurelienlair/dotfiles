@@ -53,9 +53,6 @@ deploy_dotfiles() {
         cp -v .lessfilter "$path"
         chown -v $username:$username "$path/.lessfilter"
         chmod a+x "$path/.lessfilter"
-        #rm -fv "$path.bashrc"
-        #cp -v .bashrc "$path.bashrc"
-        #chown -v $username:$username "$path.bashrc"
     else
         echo -e "${RED}The user '$username' does not exist, skipping config...${Z}" 1>&2
         echo -e "\e[7mExit\e[0m"
