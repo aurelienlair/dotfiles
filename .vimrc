@@ -88,6 +88,7 @@ let g:ctrlp_custom_ignore = {
 
 " LOCALVIMRC SETTINGS "
 let g:localvimrc_sandbox = 0
+let g:localvimrc_ask = 0
 
 " VIM TEST SETTINGS
 nmap <silent> t<C-n> :TestNearest<CR>
