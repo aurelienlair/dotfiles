@@ -60,6 +60,7 @@ do_install() {
             18 "Asdf" off
             19 "Node" off
             20 "InstantMarkDown" off
+            21 "Yamllint" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -164,6 +165,11 @@ do_install() {
             20)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Instant Markdown${Z}"
                 curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-instant-markdown.sh | sudo -H -u aurelien /bin/bash
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            21)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Yamllint${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-yamllint.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
