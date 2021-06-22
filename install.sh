@@ -61,6 +61,7 @@ do_install() {
             19 "Node" off
             20 "InstantMarkDown" off
             21 "Yamllint" off
+            22 "Pylint" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -170,6 +171,11 @@ do_install() {
             21)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Yamllint${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-yamllint.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            22)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Pylint${Z}"
+                /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-pylint.sh)
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac
