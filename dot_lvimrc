@@ -2,9 +2,15 @@
 " let g:syntastic_debug=3
 let g:syntastic_typescript_eslint_exec=['./node_modules/.bin/eslint']       
 let g:syntastic_javascript_eslint_args='-c ./.eslintrc.js' '''']
+" or
+let g:syntastic_javascript_eslint_exec = '~/eslint.sh'
+
+set autoread
+function! SyntasticCheckHook(errors)
+    checktime
+endfunction
 
 autocmd BufNewFile,BufRead *.tpl :set ft=javascript ts=2 sts=2 sw=2
 
-let g:test#javascript#runner = 'jest'
-let g:test#javascript#jest#executable = 'docker exec -it qa-newrelic-terraform node_modules/.bin/jest'
-let g:test#javascript#jest#file_pattern = 'test\.js'
+" Localvimrc debug
+vim --cmd "let g:localvimrc_debug=99" -c "LocalVimRCDebugDump localvimrc_debug.txt" src/cafe.js
