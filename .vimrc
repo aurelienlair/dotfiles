@@ -187,7 +187,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_yaml_checkers = ["yamllint"]
 let g:syntastic_python_checkers= ["pylint"]
 " display error on the location bar at the bottom
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
