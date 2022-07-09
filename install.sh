@@ -62,6 +62,7 @@ do_install() {
             20 "InstantMarkDown" off
             21 "Yamllint" off
             22 "Pylint" off
+            23 "Git configurations" off
     )
     choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
     clear
@@ -176,6 +177,11 @@ do_install() {
             22)
                 echo -e "${LGREEN}Installing${Z} ${YELLOW}Pylint${Z}"
                 /bin/bash < <(curl -s https://raw.githubusercontent.com/aurelienlair/dotfiles/master/scripts/install-pylint.sh)
+                echo -e "${LGREEN}...done${Z}\n"
+                ;;
+            23)
+                echo -e "${LGREEN}Installing${Z} ${YELLOW}Git configurations${Z}"
+                cp -v .git* /home/aurelien
                 echo -e "${LGREEN}...done${Z}\n"
                 ;;
         esac

@@ -1,2 +1,44 @@
+# Vim
 *.swp
 *.swo
+
+# docker
+docker-compose.override.yml
+docker-sync.yml
+
+# VS Code
+.history
+
+# IntelliJ
+.idea
+
+# Node
+node_modules
+.npmrc
+
+# PHP
+var/
+vendor/
+app/cache/*
+app/cache_sessions/
+app/logs/*
+
+# Tmp
+*~
+*.diff
+
+# OSX-specific exclusions
+.[dD][sS]_[sS]tore
+
+### hidden ###
+.*
+!.dockerignore
+!.editorconfig
+!.env
+!.gitkeep
+!.idea/codeStyleSettings.xml
+!.vscode/settings.json
+!.gitlab-ci.yml
+!.gitlab-ci.*.yml
+!.yamllint
+!.gitlab/
